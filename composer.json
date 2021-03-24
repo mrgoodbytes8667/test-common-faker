@@ -1,0 +1,24 @@
+{
+    "name": "mrgoodbytes8667/test-common-faker",
+    "type": "library",
+    "description": "Faker providers",
+    "require": {
+        "php": "^7.4 | ^8.0",
+        "fakerphp/faker": "^1.13",
+        "symfony/string": "^5.2"
+    },
+    "authors": [
+        {
+            "name": "MrGoodBytes",
+            "email": "bytes@goodbytes.live"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Bytes\\Tests\\Common\\Faker\\": "src/"
+        }
+    }
+}
