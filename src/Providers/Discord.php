@@ -17,6 +17,25 @@ use Faker\Provider\Internet;
 class Discord extends Base
 {
     /**
+     *
+     */
+    const REGIONS = [
+        'brazil',
+        'europe',
+        'hong-kong',
+        'india',
+        'japan',
+        'russia',
+        'singapore',
+        'south-africa',
+        'sydney',
+        'us-central',
+        'us-east',
+        'us-south',
+        'us-west',
+    ];
+
+    /**
      * @param bool $isGif
      * @return string
      */
@@ -165,6 +184,15 @@ class Discord extends Base
     }
 
     /**
+     * @return string
+     */
+    public function scope()
+    {
+        $temp = self::scopes(1);
+        return array_shift($temp);
+    }
+
+    /**
      * @param int $max
      * @return string[]
      */
@@ -197,15 +225,6 @@ class Discord extends Base
             $max = $this->generator->numberBetween(1, count($permissions));
         }
         return $this->generator->randomElements($permissions, $max);
-    }
-
-    /**
-     * @return string
-     */
-    public function scope()
-    {
-        $temp = self::scopes(1);
-        return array_shift($temp);
     }
 
     /**
@@ -255,5 +274,35 @@ class Discord extends Base
         return $return;
     }
 
+    /**
+     * @return int
+     */
+    public function channelType()
+    {
+        return $this->generator->numberBetween(0, 6);
+    }
 
+    /**
+     * @return string
+     */
+    public function region()
+    {
+        return $this->generator->randomElement(self::REGIONS);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function rtcRegion()
+    {
+        return $this->generator->optional(self::rtcRegionNullProbability())->region();
+    }
+
+    /**
+     * @return float
+     */
+    public static function rtcRegionNullProbability()
+    {
+        return 1 - (1 / (count(self::REGIONS) + 1));
+    }
 }
