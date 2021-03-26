@@ -305,4 +305,39 @@ class Discord extends Base
     {
         return 1 - (1 / (count(self::REGIONS) + 1));
     }
+
+    /**
+     * @param bool $excludeV6
+     */
+    public function messageType(bool $excludeV8 = false)
+    {
+        $types = range(0, 12);
+        $types[] = 14;
+        $types[] = 15;
+        if(!$excludeV8)
+        {
+            $types[] = 19;
+            $types[] = 20;
+        }
+        return $this->generator->randomElement($types);
+    }
+
+    /**
+     * @param int|float|null $weight Optional weight for optional method. If null, optional is omitted
+     * @return string|null
+     */
+    public function timestamp($weight = null)
+    {
+        if(is_null($weight))
+        {
+            return $this->generator->dateTimeThisMonth()->format(DATE_ATOM);
+        }
+        $date = $this->generator->optional($weight)->dateTimeThisMonth();
+
+        if(is_null($date))
+        {
+            return $date;
+        }
+        return $date->format(DATE_ATOM);
+    }
 }
