@@ -8,12 +8,10 @@ use Faker\Provider\Base;
 use function Symfony\Component\String\u;
 
 /**
- * Class SymfonyStringWords
+ * Class MiscProvider
  * @package Bytes\Tests\Common\Faker\Providers
- *
- * @deprecated v0.0.3 Use MiscProvider
  */
-final class SymfonyStringWords extends Base
+class MiscProvider extends Base
 {
     /**
      * @param int $nb
