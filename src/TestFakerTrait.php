@@ -9,6 +9,7 @@ use Faker\Factory;
 use Faker\Generator as FakerGenerator;
 use Faker\Provider\Address;
 use Faker\Provider\Barcode;
+use Faker\Provider\Base;
 use Faker\Provider\Biased;
 use Faker\Provider\Color;
 use Faker\Provider\Company;
@@ -46,6 +47,11 @@ trait TestFakerTrait
         if (is_null($this->faker)) {
             $faker = Factory::create();
             $faker->addProvider(new MiscProvider($faker));
+            foreach($this->providers as $class)
+            {
+                $provider = new $class($faker);
+                $faker->addProvider($provider);
+            }
             $this->faker = $faker;
         }
     }
@@ -57,4 +63,9 @@ trait TestFakerTrait
     {
         $this->faker = null;
     }
+
+    /**
+     * @var Base[]|array
+     */
+    protected $providers = [];
 }
