@@ -21,6 +21,7 @@ final class SymfonyStringWords extends Base
      */
     public function camelWords(int $nb = 3)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.0.3', 'The "%s()" class is becoming the MiscProvider class.', __CLASS__);
         return u($this->generator->words($nb, true))->camel()->toString();
     }
 
@@ -30,6 +31,7 @@ final class SymfonyStringWords extends Base
      */
     public function snakeWords(int $nb = 3)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.0.3', 'The "%s()" class is becoming the MiscProvider class.', __CLASS__);
         return u($this->generator->words($nb, true))->snake()->toString();
     }
 
@@ -43,6 +45,7 @@ final class SymfonyStringWords extends Base
      */
     public function oneOrMoreOf($source, int $count = 0, $allowDuplicates = false)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.0.3', 'The "%s()" class is becoming the MiscProvider class.', __CLASS__);
         if($count === 0 || $count > count($source))
         {
             $count = count($source);
@@ -59,6 +62,7 @@ final class SymfonyStringWords extends Base
      */
     public function rangeBetween(int $end = 3, int $start = 1)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.0.3', 'The "%s()" class is becoming the MiscProvider class.', __CLASS__);
         return range($start, $this->generator->numberBetween(1, $end));
     }
 }
