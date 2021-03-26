@@ -31,6 +31,8 @@ use Faker\Provider\Uuid;
 /**
  * Trait TestFakerTrait
  * @package Bytes\Common\Faker
+ *
+ * @property Base[]|array $providers
  */
 trait TestFakerTrait
 {
@@ -47,13 +49,21 @@ trait TestFakerTrait
         if (is_null($this->faker)) {
             $faker = Factory::create();
             $faker->addProvider(new MiscProvider($faker));
-            foreach($this->providers as $class)
-            {
+            foreach ($this->getProviders() as $class) {
                 $provider = new $class($faker);
                 $faker->addProvider($provider);
             }
             $this->faker = $faker;
         }
+    }
+
+    /**
+     * @return array|Base[]
+     * @var Base[]|array
+     */
+    protected function getProviders()
+    {
+        return $this->providers;
     }
 
     /**
@@ -63,9 +73,4 @@ trait TestFakerTrait
     {
         $this->faker = null;
     }
-
-    /**
-     * @var Base[]|array
-     */
-    protected $providers = [];
 }
