@@ -19,7 +19,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Bytes\\Tests\\Common\\Faker\\": "src/"
+            "Bytes\\Common\\Faker\\Providers\\": "Providers/",
+            "Bytes\\Common\\Faker\\": "src/"
         }
     }
 }

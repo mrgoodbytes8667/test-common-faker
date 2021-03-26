@@ -1,17 +1,17 @@
 <?php
 
 
-namespace Bytes\Tests\Common\Faker;
+namespace Bytes\Common\Faker;
 
 
-use Bytes\Tests\Common\Faker\Providers\Discord;
+use Bytes\Common\Faker\Providers\Discord;
 use Faker\Factory;
 use Faker\Generator as FakerGenerator;
 use Faker\Provider\Miscellaneous;
 
 /**
  * Trait TestDiscordFakerTrait
- * @package Bytes\Tests\Common\Faker
+ * @package Bytes\Common\Faker
  *
  * @deprecated v0.0.5 Moved to the bundle mrgoodbytes8667/test-discord-faker.
  */

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Bytes\Tests\Common\Faker\Providers;
+namespace Bytes\Common\Faker\Providers;
 
 
 use Faker\Provider\Base;
@@ -9,7 +9,7 @@ use function Symfony\Component\String\u;
 
 /**
  * Class SymfonyStringWords
- * @package Bytes\Tests\Common\Faker\Providers
+ * @package Bytes\Common\Faker\Providers
  *
  * @deprecated v0.0.3 Use MiscProvider
  */

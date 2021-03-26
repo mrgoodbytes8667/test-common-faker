@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Bytes\Tests\Common\Faker;
+namespace Bytes\Common\Faker;
 
 
-use Bytes\Tests\Common\Faker\Providers\MiscProvider;
+use Bytes\Common\Faker\Providers\MiscProvider;
 use Faker\Factory;
 use Faker\Generator as FakerGenerator;
 use Faker\Provider\Address;
@@ -30,7 +30,7 @@ use Faker\Provider\Uuid;
 
 /**
  * Trait TestFakerTrait
- * @package Bytes\Tests\Common\Faker
+ * @package Bytes\Common\Faker
  */
 trait TestFakerTrait
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Bytes\Tests\Common\Faker\Providers;
+namespace Bytes\Common\Faker\Providers;
 
 
 use Faker\Generator;
@@ -10,9 +10,10 @@ use Faker\Provider\Internet;
 
 /**
  * Class Discord
- * @package Bytes\Tests\Common\Faker\Providers
+ * @package Bytes\Common\Faker\Providers
  *
  * @property Generator|Internet $generator
+ * @deprecated v0.1.0 Moved to mrgoodbytes8667/test-discord-faker
  */
 class Discord extends Base
 {
@@ -41,6 +42,7 @@ class Discord extends Base
      */
     public function iconHash(bool $isGif = false)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         $output = '';
         foreach (range(1, 6) as $index) {
             $output .= str_pad(dechex(self::numberBetween(1, 16777215)), 6, '0', STR_PAD_LEFT);
@@ -53,6 +55,7 @@ class Discord extends Base
      */
     public function guildId()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return self::snowflake(7);
     }
 
@@ -62,6 +65,7 @@ class Discord extends Base
      */
     public function snowflake(?int $prepend = null)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         $output = '';
         if (!is_null($prepend)) {
             $output = (string)$prepend;
@@ -77,6 +81,7 @@ class Discord extends Base
      */
     public function roleId()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return self::snowflake(8);
     }
 
@@ -85,6 +90,7 @@ class Discord extends Base
      */
     public function userId()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return self::snowflake(2);
     }
 
@@ -93,6 +99,7 @@ class Discord extends Base
      */
     public function channelId()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return self::snowflake(2);
     }
 
@@ -101,6 +108,7 @@ class Discord extends Base
      */
     public function messageId()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return self::snowflake(8);
     }
 
@@ -109,6 +117,7 @@ class Discord extends Base
      */
     public function guildName()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return $this->generator->text(100);
     }
 
@@ -117,6 +126,7 @@ class Discord extends Base
      */
     public function owner()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return $this->generator->boolean();
     }
 
@@ -126,6 +136,7 @@ class Discord extends Base
      */
     public function features(int $maxFeatures = 3)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return $this->generator->words($maxFeatures);
     }
 
@@ -135,6 +146,7 @@ class Discord extends Base
      */
     public function userNameDiscriminator()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return $this->generator->userName() . '#' . self::discriminator();
     }
 
@@ -144,6 +156,7 @@ class Discord extends Base
      */
     public function discriminator()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return str_pad($this->generator->numberBetween(0, 9999), 4, '0', STR_PAD_LEFT);
     }
 
@@ -152,6 +165,7 @@ class Discord extends Base
      */
     public function refreshToken()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return self::accessToken();
     }
 
@@ -160,6 +174,7 @@ class Discord extends Base
      */
     public function accessToken()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         $output = '';
         foreach (range(1, 30) as $i) {
             $output .= $this->generator->randomElement(self::getAlphanumerics());
@@ -172,6 +187,7 @@ class Discord extends Base
      */
     public static function getAlphanumerics()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return str_split('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
     }
 
@@ -180,6 +196,7 @@ class Discord extends Base
      */
     public function tokenType()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return $this->generator->randomElement(['Bot', 'Bearer']);
     }
 
@@ -188,6 +205,7 @@ class Discord extends Base
      */
     public function scope()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         $temp = self::scopes(1);
         return array_shift($temp);
     }
@@ -198,6 +216,7 @@ class Discord extends Base
      */
     public function scopes(int $max = 0)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         $permissions = [
             'bot',
             'connections',
@@ -232,6 +251,7 @@ class Discord extends Base
      */
     public function permissionInteger()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         $permissions = [
             0x00000001,
             0x00000002,
@@ -279,6 +299,7 @@ class Discord extends Base
      */
     public function channelType()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return $this->generator->numberBetween(0, 6);
     }
 
@@ -287,6 +308,7 @@ class Discord extends Base
      */
     public function region()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return $this->generator->randomElement(self::REGIONS);
     }
 
@@ -295,6 +317,7 @@ class Discord extends Base
      */
     public function rtcRegion()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return $this->generator->optional(self::rtcRegionNullProbability())->region();
     }
 
@@ -303,6 +326,7 @@ class Discord extends Base
      */
     public static function rtcRegionNullProbability()
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         return 1 - (1 / (count(self::REGIONS) + 1));
     }
 
@@ -311,6 +335,7 @@ class Discord extends Base
      */
     public function messageType(bool $excludeV8 = false)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         $types = range(0, 12);
         $types[] = 14;
         $types[] = 15;
@@ -328,6 +353,7 @@ class Discord extends Base
      */
     public function timestamp($weight = null)
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.1.0', 'The "%s()" class moved to mrgoodbytes8667/test-discord-faker .', __CLASS__);
         if(is_null($weight))
         {
             return $this->generator->dateTimeThisMonth()->format(DATE_ATOM);
