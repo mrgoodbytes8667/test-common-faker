@@ -12,6 +12,8 @@ use Faker\Provider\Miscellaneous;
 /**
  * Trait TestDiscordFakerTrait
  * @package Bytes\Tests\Common\Faker
+ *
+ * @deprecated v0.0.5 Moved to the bundle mrgoodbytes8667/test-discord-faker.
  */
 trait TestDiscordFakerTrait
 {
@@ -25,6 +27,7 @@ trait TestDiscordFakerTrait
      */
     protected function setupFaker(): void
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.0.5', 'The "%s()" class has moved to the bundle mrgoodbytes8667/test-discord-faker.', __CLASS__);
         if (is_null($this->faker)) {
             /** @var FakerGenerator|Discord $faker */
             $faker = Factory::create();
@@ -38,6 +41,7 @@ trait TestDiscordFakerTrait
      */
     protected function tearDownFaker(): void
     {
+        trigger_deprecation('mrgoodbytes8667/test-common-faker', '0.0.5', 'The "%s()" class has moved to the bundle mrgoodbytes8667/test-discord-faker.', __CLASS__);
         $this->faker = null;
     }
 }
