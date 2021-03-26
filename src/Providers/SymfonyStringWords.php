@@ -30,4 +30,33 @@ class SymfonyStringWords extends Base
     {
         return u($this->generator->words($nb, true))->snake()->toString();
     }
+
+    /**
+     * Returns randomly ordered subsequence of 1 to $count elements from a provided array
+     *
+     * @param array $source Array to take elements from
+     * @param int $count Maximum number of elements to take. Defaults to the number of elements in $source
+     * @param false $allowDuplicates Allow elements to be picked several times. Defaults to false
+     * @return array
+     */
+    public function oneOrMoreOf($source, int $count = 0, $allowDuplicates = false)
+    {
+        if($count === 0 || $count > count($source))
+        {
+            $count = count($source);
+        }
+        return $this->generator->randomElements($source, $this->generator->numberBetween(1, $count), $allowDuplicates);
+    }
+
+    /**
+     * Returns a range() array using range($start, $end)
+     *
+     * @param int $end
+     * @param int $start
+     * @return array
+     */
+    public function rangeBetween(int $end = 3, int $start = 1)
+    {
+        return range($start, $this->generator->numberBetween(1, $end));
+    }
 }
