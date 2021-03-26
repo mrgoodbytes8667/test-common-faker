@@ -10,8 +10,10 @@ use function Symfony\Component\String\u;
 /**
  * Class SymfonyStringWords
  * @package Bytes\Tests\Common\Faker\Providers
+ *
+ * @deprecated v0.0.3 Use MiscProvider
  */
-class SymfonyStringWords extends Base
+final class SymfonyStringWords extends Base
 {
     /**
      * @param int $nb
