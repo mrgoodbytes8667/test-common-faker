@@ -5,6 +5,7 @@
     "require": {
         "php": "^7.4 | ^8.0",
         "fakerphp/faker": "^1.13",
+        "illuminate/support": "^8.0",
         "symfony/deprecation-contracts": "^2.1",
         "symfony/string": "^5.2"
     },
