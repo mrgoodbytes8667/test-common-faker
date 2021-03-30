@@ -41,8 +41,7 @@ class MiscProvider extends Base
      */
     public function oneOrMoreOf($source, int $count = 0, $allowDuplicates = false)
     {
-        if($count === 0 || $count > count($source))
-        {
+        if ($count === 0 || $count > count($source)) {
             $count = count($source);
         }
         return $this->generator->randomElements($source, $this->generator->numberBetween(1, $count), $allowDuplicates);
@@ -58,5 +57,38 @@ class MiscProvider extends Base
     public function rangeBetween(int $end = 3, int $start = 1)
     {
         return range($start, $this->generator->numberBetween(1, $end));
+    }
+
+    /**
+     * Returns a random string (default alphanumeric) of $length characters
+     * @param int $length = 16
+     * @param null $possibilities = self::getAlphanumerics()
+     * @return string
+     */
+    public function randomAlphanumericString(int $length = 16, $possibilities = null)
+    {
+        if (empty($possibilities)) {
+            $possibilities = self::getAlphanumerics();
+        }
+        if (is_string($possibilities)) {
+            $possibilities = str_split($possibilities);
+        }
+        if (!is_array($possibilities)) {
+            $possibilities = self::getAlphanumerics();
+        }
+
+        $output = '';
+        foreach (range(1, $length) as $i) {
+            $output .= $this->generator->randomElement($possibilities);
+        }
+        return $output;
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getAlphanumerics()
+    {
+        return str_split('0123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
     }
 }
