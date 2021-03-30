@@ -56,7 +56,7 @@ class MiscProvider extends Base
      */
     public function rangeBetween(int $end = 3, int $start = 1)
     {
-        return range($start, $this->generator->numberBetween(1, $end));
+        return range($start, $this->generator->numberBetween($start, $end));
     }
 
     /**
