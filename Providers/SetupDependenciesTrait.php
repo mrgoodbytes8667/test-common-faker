@@ -20,7 +20,7 @@ trait SetupDependenciesTrait
     public function addProviderIfNeeded(string $provider, Generator $generator)
     {
         if (is_null(Arr::first($generator->getProviders(), function ($value, $key) use ($provider) {
-            return get_class($value) === get_class($provider);
+            return get_class($value) === $provider;
         }))) {
             $generator->addProvider(new $provider($generator));
         }
