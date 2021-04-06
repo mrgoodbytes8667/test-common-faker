@@ -48,15 +48,21 @@ class MiscProvider extends Base
     }
 
     /**
-     * Returns a range() array using range($start, $end)
+     * Returns a range() between $start and $max where the maximum number is a possible number between $endStart and $max
      *
-     * @param int $end
+     * @example rangeBetween(4, 2, 1) -> Returns a range between 1 and either 2, 3, or 4
+     *
+     * @param int $max
      * @param int $start
+     * @param int $endStart
      * @return array
      */
-    public function rangeBetween(int $end = 3, int $start = 1)
+    public function rangeBetween(int $max = 3, int $start = 1, int $endStart = 1)
     {
-        return range($start, $this->generator->numberBetween($start, $end));
+        if($endStart > $start) {
+            $endStart = $start;
+        }
+        return range($start, $this->generator->numberBetween($endStart, $max));
     }
 
     /**
