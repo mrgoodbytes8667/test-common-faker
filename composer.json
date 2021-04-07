@@ -9,6 +9,9 @@
         "symfony/deprecation-contracts": "^2.1",
         "symfony/string": "^5.2"
     },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^5.2"
+    },
     "authors": [
         {
             "name": "MrGoodBytes",
@@ -21,7 +24,8 @@
     "autoload": {
         "psr-4": {
             "Bytes\\Common\\Faker\\Providers\\": "Providers/",
-            "Bytes\\Common\\Faker\\": "src/"
+            "Bytes\\Common\\Faker\\": "src/",
+            "Bytes\\Common\\Faker\\Tests\\": "Tests/"
         }
     }
 }
