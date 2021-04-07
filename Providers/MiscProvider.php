@@ -97,4 +97,18 @@ class MiscProvider extends Base
     {
         return str_split('0123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
     }
+
+    /**
+     * @param int $minChars
+     * @return string
+     */
+    public function paragraphsMinimumChars(int $minChars = 100)
+    {
+        $text = '';
+        do {
+            $text .= $this->generator->paragraph();
+        } while (strlen($text) <= $minChars);
+
+        return $text;
+    }
 }

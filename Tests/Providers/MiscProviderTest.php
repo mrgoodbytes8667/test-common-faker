@@ -73,4 +73,29 @@ class MiscProviderTest extends TestCase
             yield [$faker->rangeBetween(9, 1, 5)];
         }
     }
+
+    /**
+     * @dataProvider provideParagraphsMinimumChars
+     * @param $minChars
+     */
+    public function testParagraphsMinimumChars($minChars, $value)
+    {
+        $this->assertGreaterThanOrEqual($minChars, strlen($value));
+    }
+
+    /**
+     * @return Generator
+     */
+    public function provideParagraphsMinimumChars()
+    {
+        /** @var FakerGenerator|MiscProvider $faker */
+        $faker = Factory::create();
+        $faker->addProvider(new MiscProvider($faker));
+
+        foreach (range(1, 250) as $index) {
+            foreach (range(1, 1500, 100) as $minChars) {
+                yield ['minChars' => $minChars, 'value' => $faker->paragraphsMinimumChars($minChars)];
+            }
+        }
+    }
 }
