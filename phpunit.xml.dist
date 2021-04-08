@@ -15,6 +15,7 @@
             <directory>./.github</directory>
             <directory>./bin</directory>
             <directory>./Resources</directory>
+            <directory>./src</directory>
             <directory>./Tests</directory>
             <directory>./vendor</directory>
         </exclude>
