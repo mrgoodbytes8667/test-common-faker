@@ -23,15 +23,15 @@ class MiscProviderTest extends TestCase
         $faker = Factory::create();
         $faker->addProvider(new MiscProvider($faker));
 
-        $range = $faker->rangeBetween(6, 2, 4);
+        $range = $faker->rangeBetween(4, 1, 2);
 
         $count = count($range);
-        $this->assertGreaterThanOrEqual(4, $count);
-        $this->assertLessThanOrEqual(6, $count);
+        $this->assertGreaterThanOrEqual(2, $count);
+        $this->assertLessThanOrEqual(4, $count);
 
         foreach ($range as $i) {
-            $this->assertGreaterThanOrEqual(2, $i);
-            $this->assertLessThanOrEqual(6, $i);
+            $this->assertGreaterThanOrEqual(1, $i);
+            $this->assertLessThanOrEqual(4, $i);
         }
     }
 
