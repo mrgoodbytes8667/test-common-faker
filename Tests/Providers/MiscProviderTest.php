@@ -15,6 +15,27 @@ use PHPUnit\Framework\TestCase;
 class MiscProviderTest extends TestCase
 {
     /**
+     *
+     */
+    public function testRangeBetween()
+    {
+        /** @var FakerGenerator|MiscProvider $faker */
+        $faker = Factory::create();
+        $faker->addProvider(new MiscProvider($faker));
+
+        $range = $faker->rangeBetween(6, 2, 4);
+
+        $count = count($range);
+        $this->assertGreaterThanOrEqual(4, $count);
+        $this->assertLessThanOrEqual(6, $count);
+
+        foreach ($range as $i) {
+            $this->assertGreaterThanOrEqual(2, $i);
+            $this->assertLessThanOrEqual(6, $i);
+        }
+    }
+
+    /**
      * @dataProvider provideRangeBetween412
      * @param $range
      */
@@ -75,10 +96,24 @@ class MiscProviderTest extends TestCase
     }
 
     /**
+     *
+     */
+    public function testParagraphsMinimumChars()
+    {
+        /** @var FakerGenerator|MiscProvider $faker */
+        $faker = Factory::create();
+        $faker->addProvider(new MiscProvider($faker));
+
+        $minChars = $faker->numberBetween(1000, 1500);
+
+        $this->assertGreaterThanOrEqual($minChars, strlen($faker->paragraphsMinimumChars($minChars)));
+    }
+
+    /**
      * @dataProvider provideParagraphsMinimumChars
      * @param $minChars
      */
-    public function testParagraphsMinimumChars($minChars, $value)
+    public function testParagraphsMinimumCharsMultiple($minChars, $value)
     {
         $this->assertGreaterThanOrEqual($minChars, strlen($value));
     }
