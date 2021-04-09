@@ -42,6 +42,7 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: json, dom, curl, libxml, mbstring
           coverage: pcov
+          ini-values: pcov.directory=Providers
 
       - name: Install dependencies
         if: success()
@@ -55,3 +56,5 @@ jobs:
 
       - name: Codecov
         uses: codecov/codecov-action@v1
+        with:
+          files: ./clover.xml
