@@ -2,11 +2,10 @@
 
 namespace Bytes\Common\Faker\Tests\Providers;
 
-use Bytes\Common\Faker\Providers\MiscProvider;
-use Faker\Factory;
-use Faker\Generator as FakerGenerator;
+use Bytes\Common\Faker\TestFakerTrait;
 use Generator;
 use PHPUnit\Framework\TestCase;
+use function Symfony\Component\String\u;
 
 /**
  * Class MiscProviderTest
@@ -14,19 +13,83 @@ use PHPUnit\Framework\TestCase;
  */
 class MiscProviderTest extends TestCase
 {
+    use TestFakerTrait;
+
+    /**
+     * Test is mostly for coverage, there isn't a good way to test this function
+     */
+    public function testCamelWords()
+    {
+        $words = $this->faker->camelWords();
+        $this->assertEquals(u($words)->camel()->toString(), $words);
+    }
+
+    /**
+     * Test is mostly for coverage, there isn't a good way to test this function
+     */
+    public function testSnakeWords()
+    {
+        $words = $this->faker->snakeWords();
+        $this->assertEquals(u($words)->snake()->toString(), $words);
+    }
+
+    /**
+     *
+     */
+    public function testOneOrMoreOf()
+    {
+        $result = $this->faker->oneOrMoreOf($this->faker->words());
+        $this->assertGreaterThanOrEqual(1, count($result));
+    }
+
+    /**
+     * @dataProvider provideWords
+     * @param $words
+     */
+    public function testOneOrMoreOfMultiple($words)
+    {
+        $result = $this->faker->oneOrMoreOf($words);
+        $this->assertGreaterThanOrEqual(1, count($result));
+    }
+
+    /**
+     * @return Generator
+     */
+    public function provideWords()
+    {
+        $this->setupFaker();
+
+        foreach (range(1, 1000) as $index) {
+            yield [$this->faker->words($this->faker->numberBetween(3, 9))];
+        }
+    }
+
     /**
      *
      */
     public function testRangeBetween()
     {
-        /** @var FakerGenerator|MiscProvider $faker */
-        $faker = Factory::create();
-        $faker->addProvider(new MiscProvider($faker));
-
-        $range = $faker->rangeBetween(4, 1, 2);
+        $range = $this->faker->rangeBetween(4, 1, 2);
 
         $count = count($range);
         $this->assertGreaterThanOrEqual(2, $count);
+        $this->assertLessThanOrEqual(4, $count);
+
+        foreach ($range as $i) {
+            $this->assertGreaterThanOrEqual(1, $i);
+            $this->assertLessThanOrEqual(4, $i);
+        }
+    }
+
+    /**
+     *
+     */
+    public function testRangeBetweenForInvalidEndStart()
+    {
+        $range = $this->faker->rangeBetween(4, 1, 0);
+
+        $count = count($range);
+        $this->assertGreaterThanOrEqual(1, $count);
         $this->assertLessThanOrEqual(4, $count);
 
         foreach ($range as $i) {
@@ -56,12 +119,10 @@ class MiscProviderTest extends TestCase
      */
     public function provideRangeBetween412()
     {
-        /** @var FakerGenerator|MiscProvider $faker */
-        $faker = Factory::create();
-        $faker->addProvider(new MiscProvider($faker));
+        $this->setupFaker();
 
         foreach (range(1, 1000) as $index) {
-            yield [$faker->rangeBetween(4, 1, 2)];
+            yield [$this->faker->rangeBetween(4, 1, 2)];
         }
     }
 
@@ -86,12 +147,35 @@ class MiscProviderTest extends TestCase
      */
     public function provideRangeBetween915()
     {
-        /** @var FakerGenerator|MiscProvider $faker */
-        $faker = Factory::create();
-        $faker->addProvider(new MiscProvider($faker));
+        $this->setupFaker();
 
         foreach (range(1, 1000) as $index) {
-            yield [$faker->rangeBetween(9, 1, 5)];
+            yield [$this->faker->rangeBetween(9, 1, 5)];
+        }
+    }
+
+    /**
+     *
+     */
+    public function testRandomAlphanumericString()
+    {
+        // Tests empty $possibilities
+        $result = $this->faker->randomAlphanumericString(18);
+        $this->assertEquals(18, strlen($result));
+        foreach (array_merge(range(0, 47), range(58, 64), range(91, 96), range(123, 127)) as $dec) {
+            $this->assertStringNotContainsString(chr($dec), $result);
+        }
+
+        // Tests string $possibilities
+        $result = $this->faker->randomAlphanumericString(10, 'A');
+        $this->assertEquals(10, strlen($result));
+        $this->assertEquals('AAAAAAAAAA', $result);
+
+        // Tests non-string and non-array $possibilities
+        $result = $this->faker->randomAlphanumericString(12, 5);
+        $this->assertEquals(12, strlen($result));
+        foreach (array_merge(range(0, 47), range(58, 64), range(91, 96), range(123, 127)) as $dec) {
+            $this->assertStringNotContainsString(chr($dec), $result);
         }
     }
 
@@ -100,13 +184,9 @@ class MiscProviderTest extends TestCase
      */
     public function testParagraphsMinimumChars()
     {
-        /** @var FakerGenerator|MiscProvider $faker */
-        $faker = Factory::create();
-        $faker->addProvider(new MiscProvider($faker));
+        $minChars = $this->faker->numberBetween(1000, 1500);
 
-        $minChars = $faker->numberBetween(1000, 1500);
-
-        $this->assertGreaterThanOrEqual($minChars, strlen($faker->paragraphsMinimumChars($minChars)));
+        $this->assertGreaterThanOrEqual($minChars, strlen($this->faker->paragraphsMinimumChars($minChars)));
     }
 
     /**
@@ -123,13 +203,11 @@ class MiscProviderTest extends TestCase
      */
     public function provideParagraphsMinimumChars()
     {
-        /** @var FakerGenerator|MiscProvider $faker */
-        $faker = Factory::create();
-        $faker->addProvider(new MiscProvider($faker));
+        $this->setupFaker();
 
         foreach (range(1, 250) as $index) {
             foreach (range(1, 1500, 100) as $minChars) {
-                yield ['minChars' => $minChars, 'value' => $faker->paragraphsMinimumChars($minChars)];
+                yield ['minChars' => $minChars, 'value' => $this->faker->paragraphsMinimumChars($minChars)];
             }
         }
     }
