@@ -63,7 +63,7 @@ trait TestFakerTrait
      */
     protected function getProviders()
     {
-        return $this->providers;
+        return $this->providers ?? [];
     }
 
     /**
