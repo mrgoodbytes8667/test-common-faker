@@ -68,7 +68,7 @@ class MiscProvider extends Base
     /**
      * Returns a random string (default alphanumeric) of $length characters
      * @param int $length = 16
-     * @param null $possibilities = self::getAlphanumerics()
+     * @param string[]|string|mixed|null $possibilities = self::getAlphanumerics()
      * @return string
      */
     public function randomAlphanumericString(int $length = 16, $possibilities = null)
