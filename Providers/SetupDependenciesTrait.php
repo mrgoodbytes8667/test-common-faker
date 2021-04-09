@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 /**
  * Trait SetupDependenciesTrait
  * @package Bytes\Common\Faker\Providers
+ * @codeCoverageIgnore
  */
 trait SetupDependenciesTrait
 {
