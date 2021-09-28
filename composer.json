@@ -8,10 +8,10 @@
         "fakerphp/faker": "^1.13",
         "illuminate/support": "^8.0",
         "symfony/deprecation-contracts": "^2.1",
-        "symfony/string": "^5.2"
+        "symfony/string": "^5.2 | ^6.0"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^5.2"
+        "symfony/test-pack": "^1.0.9"
     },
     "authors": [
         {
