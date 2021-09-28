@@ -22,6 +22,9 @@
     "config": {
         "sort-packages": true
     },
+    "conflict": {
+        "phpunit/phpunit": "<9.5"
+    },
     "autoload": {
         "psr-4": {
             "Bytes\\Common\\Faker\\Providers\\": "Providers/",
