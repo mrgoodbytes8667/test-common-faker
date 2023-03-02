@@ -4,6 +4,7 @@
 namespace Bytes\Common\Faker;
 
 
+use Bytes\Common\Faker\Providers\ImageProvider;
 use Bytes\Common\Faker\Providers\MiscProvider;
 use Faker\Factory;
 use Faker\Generator as FakerGenerator;
@@ -37,7 +38,7 @@ use Faker\Provider\Uuid;
 trait TestFakerTrait
 {
     /**
-     * @var FakerGenerator|MiscProvider|Address|Barcode|Biased|Color|Company|DateTime|File|HtmlLorem|Image|Internet|Lorem|Medical|Miscellaneous|Payment|Person|PhoneNumber|Text|UserAgent|Uuid
+     * @var FakerGenerator|MiscProvider|Address|Barcode|Biased|Color|Company|DateTime|File|HtmlLorem|Internet|Lorem|Medical|Miscellaneous|Payment|Person|PhoneNumber|Text|UserAgent|Uuid
      */
     protected $faker;
 
@@ -49,6 +50,7 @@ trait TestFakerTrait
         if (is_null($this->faker)) {
             $faker = Factory::create();
             $faker->addProvider(new MiscProvider($faker));
+            $faker->addProvider(new ImageProvider($faker));
             foreach ($this->getProviders() as $class) {
                 $provider = new $class($faker);
                 $faker->addProvider($provider);
