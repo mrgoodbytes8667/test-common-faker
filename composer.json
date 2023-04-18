@@ -10,6 +10,7 @@
         "symfony/string": "^5.2 | ^6.0"
     },
     "require-dev": {
+        "mmo/faker-images": "dev-master",
         "symfony/test-pack": "^1.0.9"
     },
     "authors": [
