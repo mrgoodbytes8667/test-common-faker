@@ -111,4 +111,20 @@ class MiscProvider extends Base
 
         return $text;
     }
+
+    /**
+     * @param string $class
+     * @return \BackedEnum|null
+     */
+    public function randomEnum(string $class): ?\BackedEnum {
+        return self::randomElement($class::cases());
+    }
+
+    /**
+     * @param string $class
+     * @return int|string|null
+     */
+    public function randomEnumValue(string $class) {
+        return self::randomElement($class::cases())?->value;
+    }
 }
