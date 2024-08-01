@@ -3,6 +3,7 @@
 namespace Bytes\Common\Faker\Tests\Providers;
 
 use Bytes\Common\Faker\TestFakerTrait;
+use Bytes\Common\Faker\Tests\Fixtures\FixtureEnum;
 use Generator;
 use PHPUnit\Framework\TestCase;
 use function Symfony\Component\String\u;
@@ -210,5 +211,23 @@ class MiscProviderTest extends TestCase
                 yield ['minChars' => $minChars, 'value' => $this->faker->paragraphsMinimumChars($minChars)];
             }
         }
+    }
+
+    public function testRandomEnum()
+    {
+        self::assertContains($this->faker->randomEnum(FixtureEnum::class), FixtureEnum::cases());
+        self::assertContains($this->faker->randomEnum(FixtureEnum::A), FixtureEnum::cases());
+    }
+
+    public function testRandomEnumValue()
+    {
+        $values = [];
+
+        foreach (FixtureEnum::cases() as $case) {
+            $values[] = $case->value;
+        }
+        
+        self::assertContains($this->faker->randomEnumValue(FixtureEnum::class), $values);
+        self::assertContains($this->faker->randomEnumValue(FixtureEnum::A), $values);
     }
 }

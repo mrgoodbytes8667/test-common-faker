@@ -4,6 +4,7 @@
 namespace Bytes\Common\Faker\Providers;
 
 
+use BackedEnum;
 use Faker\Provider\Base;
 use function Symfony\Component\String\u;
 
@@ -113,18 +114,19 @@ class MiscProvider extends Base
     }
 
     /**
-     * @param string $class
-     * @return \BackedEnum|null
+     * @param BackedEnum|class-string<BackedEnum> $class
+     * @return BackedEnum|null
      */
-    public function randomEnum(string $class): ?\BackedEnum {
+    public function randomEnum(BackedEnum|string $class): ?BackedEnum {
         return self::randomElement($class::cases());
     }
 
     /**
-     * @param string $class
+     * @param BackedEnum|class-string<BackedEnum> $class
      * @return int|string|null
      */
-    public function randomEnumValue(string $class) {
+    public function randomEnumValue(BackedEnum|string $class): int|string|null
+    {
         return self::randomElement($class::cases())?->value;
     }
 }
