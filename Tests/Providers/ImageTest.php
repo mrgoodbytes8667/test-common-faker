@@ -12,8 +12,4 @@ class ImageTest extends TestCase
     public function testImageUrl() {
         self::assertNotEmpty($this->faker->imageUrl());
     }
-
-    public function testImage() {
-        self::assertNotEmpty($this->faker->image());
-    }
 }

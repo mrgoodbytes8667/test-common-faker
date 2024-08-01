@@ -59,27 +59,4 @@ class Image extends Base
     ) {
         return PicsumProvider::picsumUrl(width: $width, height: $height, id: $width . 'x' . $height, randomize: $randomize, gray: $gray, imageExtension: $format);
     }
-
-    /**
-     * Download a remote random image to disk and return its location
-     *
-     * Requires curl, or allow_url_fopen to be on in php.ini.
-     *
-     * @example '/path/to/dir/13b73edae8443990be1aa8f1a483bc27.png'
-     *
-     * @return bool|string
-     */
-    public static function image(
-        $dir = null,
-        $width = 640,
-        $height = 480,
-        $category = null,
-        $fullPath = true,
-        $randomize = true,
-        $word = null,
-        $gray = false,
-        $format = 'jpg'
-    ) {
-        return PicsumProvider::picsum(dir: $dir, width: $width, height: $height, fullPath: $fullPath, id: $width . 'x' . $height, randomize: $randomize, gray: $gray, imageExtension: $format);
-    }
 }
