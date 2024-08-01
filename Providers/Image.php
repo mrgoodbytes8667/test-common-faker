@@ -67,7 +67,7 @@ class Image extends Base
      *
      * @example '/path/to/dir/13b73edae8443990be1aa8f1a483bc27.png'
      *
-     * @return bool|string
+     * @return string
      */
     public static function image(
         $dir = null,
@@ -80,6 +80,10 @@ class Image extends Base
         $gray = false,
         $format = 'jpg'
     ) {
-        return PicsumProvider::picsum(dir: $dir, width: $width, height: $height, fullPath: $fullPath, id: $width . 'x' . $height, randomize: $randomize, gray: $gray, imageExtension: $format);
+        $picsum = PicsumProvider::picsum(dir: $dir, width: $width, height: $height, fullPath: $fullPath, id: $width . 'x' . $height, randomize: $randomize, gray: $gray, imageExtension: $format);
+        if(is_bool($picsum)) {
+            return '';
+        }
+        return $picsum;
     }
 }
