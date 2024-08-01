@@ -57,6 +57,6 @@ class Image extends Base
         $gray = false,
         $format = 'jpg'
     ) {
-        return PicsumProvider::picsumUrl(width: $width, height: $height, id: $width . 'x' . $height, randomize: $randomize, gray: $gray, imageExtension: $format);
+        return PicsumProvider::picsumUrl(width: $width, height: $height, randomize: $randomize, gray: $gray, imageExtension: $format);
     }
 }
