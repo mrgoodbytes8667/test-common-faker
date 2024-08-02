@@ -38,7 +38,7 @@ use Mmo\Faker\PicsumProvider;
 trait TestFakerTrait
 {
     /**
-     * @var FakerGenerator|MiscProvider|Address|Barcode|Biased|Color|Company|DateTime|File|HtmlLorem|Image|Internet|Lorem|Medical|Miscellaneous|Payment|Person|PhoneNumber|PicsumProvider|Text|UserAgent|Uuid
+     * @var FakerGenerator
      */
     protected $faker;
 
