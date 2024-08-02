@@ -49,4 +49,5 @@ Declare `$this->providers` as an array of additional providers beyond `MiscProvi
 
 ## License
 [![License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)]("http://creativecommons.org/licenses/by-nc/4.0/)  
-test-common-faker by [MrGoodBytes](https://mrgoodbytes.dev) is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
+Test Common Faker by [MrGoodBytes](https://mrgoodbytes.dev) is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).  
+Based on a work at [https://github.com/mrgoodbytes8667/test-common-faker](https://github.com/mrgoodbytes8667/test-common-faker).
