@@ -6,11 +6,8 @@
 ![Symfony Stable Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fstable%2F%255E5.2%2520%257C%2520%255E6.0%2520%257C%2520%255E7.0&logoColor=FFF&style=flat)
 ![Symfony Dev Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fdev%2F%255E5.2%2520%257C%2520%255E6.0%2520%257C%2520%255E7.0&logoColor=FFF&style=flat)
 ![Packagist License](https://img.shields.io/packagist/l/mrgoodbytes8667/test-common-faker?logo=creative-commons&logoColor=FFF&style=flat)
-![GitHub Release Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/test-common-faker/release.yml?label=stable%20build&logo=github&logoColor=FFF&style=flat)
-![GitHub Tests Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/test-common-faker/run-tests.yml?logo=github&logoColor=FFF&style=flat)
-![GitHub Coverage Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/test-common-faker/code-coverage.yml?label=coverage%20build&logo=github&logoColor=FFF&style=flat)
-[![codecov](https://img.shields.io/codecov/c/github/mrgoodbytes8667/test-common-faker/0.6?logo=codecov&logoColor=FFF&style=flat)](https://codecov.io/gh/mrgoodbytes8667/test-common-faker)  
-A [Faker](https://fakerphp.github.io/) provider with some random miscellaneous helpers
+![GitHub Release Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/test-common-faker/release.yml?label=stable%20build&logo=github&logoColor=FFF&style=flat)  
+Provides a [Faker](https://fakerphp.github.io/) test helper
 
 ## Installation
 
@@ -27,19 +24,16 @@ $ composer require mrgoodbytes8667/test-common-faker
 ## Usage
 
 ```php
-use Bytes\Common\Faker\Providers\MiscProvider;
-use Faker\Factory;
+class SampleTest extends KernelTestCase
+{
+    use \Bytes\Common\Faker\TestFakerTrait;
 
-/** @var Factory|MiscProvider $faker */
-$faker = Factory::create();
-$faker->addProvider(new MiscProvider($faker));
-
-$faker->camelWords();
-$faker->snakeWords();
-$faker->oneOrMoreOf(['some', 'iterable', 'object']);
-$faker->rangeBetween(4, 1, 2);
-$faker->randomAlphanumericString();
-$faker->paragraphsMinimumChars();
+    public function testSomething()
+    {
+        $number = $this->faker->numberBetween();
+        self::assertLessThan(0, $number);
+    }
+}
 ```
 Note: @var is helpful for IDE autocompletion
 
