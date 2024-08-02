@@ -9,7 +9,7 @@
 ![GitHub Release Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/test-common-faker/release.yml?label=stable%20build&logo=github&logoColor=FFF&style=flat)
 ![GitHub Tests Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/test-common-faker/run-tests.yml?logo=github&logoColor=FFF&style=flat)
 ![GitHub Coverage Workflow Status](https://img.shields.io/github/actions/workflow/status/mrgoodbytes8667/test-common-faker/code-coverage.yml?label=coverage%20build&logo=github&logoColor=FFF&style=flat)
-[![codecov](https://img.shields.io/codecov/c/github/mrgoodbytes8667/test-common-faker/0.5?logo=codecov&logoColor=FFF&style=flat)](https://codecov.io/gh/mrgoodbytes8667/test-common-faker)  
+[![codecov](https://img.shields.io/codecov/c/github/mrgoodbytes8667/test-common-faker/0.6?logo=codecov&logoColor=FFF&style=flat)](https://codecov.io/gh/mrgoodbytes8667/test-common-faker)  
 A [Faker](https://fakerphp.github.io/) provider with some random miscellaneous helpers
 
 ## Installation
@@ -44,10 +44,9 @@ $faker->paragraphsMinimumChars();
 Note: @var is helpful for IDE autocompletion
 
 ### With PHPUnit
-If you are using $faker in every test, you can use `TestFakerTrait` to setup/teardown `$this->faker` before/after each test.
-Declare $this->providers as an array of additional providers beyond MiscProvider to auto-add them when using this trait.
+If you are using `$faker` in every test, you can use `TestFakerTrait` to setup/teardown `$this->faker` before/after each test.
+Declare `$this->providers` as an array of additional providers beyond `MiscProvider` to auto-add them when using this trait.
 
 ## License
 [![License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)]("http://creativecommons.org/licenses/by-nc/4.0/)  
-discord-response-bundle by [MrGoodBytes](https://mrgoodbytes.dev) is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).  
-Based on a work at [https://github.com/mrgoodbytes8667/discord-response-bundle](https://github.com/mrgoodbytes8667/discord-response-bundle).
+test-common-faker by [MrGoodBytes](https://mrgoodbytes.dev) is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
