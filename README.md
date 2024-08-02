@@ -17,7 +17,7 @@ of the Composer documentation.
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require mrgoodbytes8667/test-common-faker
+$ composer require mrgoodbytes8667/test-common-faker --dev
 ```
 
 ## Usage
