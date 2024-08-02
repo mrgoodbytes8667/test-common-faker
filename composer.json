@@ -27,5 +27,6 @@
             "Bytes\\Common\\Faker\\": "src/",
             "Bytes\\Common\\Faker\\Tests\\": "Tests/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
