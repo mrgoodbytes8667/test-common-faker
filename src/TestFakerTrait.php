@@ -1,37 +1,15 @@
 <?php
 
-
 namespace Bytes\Common\Faker;
-
 
 use Bytes\Common\Faker\Providers\Image;
 use Bytes\Common\Faker\Providers\MiscProvider;
 use Faker\Factory;
 use Faker\Generator as FakerGenerator;
-use Faker\Provider\Address;
-use Faker\Provider\Barcode;
 use Faker\Provider\Base;
-use Faker\Provider\Biased;
-use Faker\Provider\Color;
-use Faker\Provider\Company;
-use Faker\Provider\DateTime;
-use Faker\Provider\File;
-use Faker\Provider\HtmlLorem;
-use Faker\Provider\Internet;
-use Faker\Provider\Lorem;
-use Faker\Provider\Medical;
-use Faker\Provider\Miscellaneous;
-use Faker\Provider\Payment;
-use Faker\Provider\Person;
-use Faker\Provider\PhoneNumber;
-use Faker\Provider\Text;
-use Faker\Provider\UserAgent;
-use Faker\Provider\Uuid;
-use Mmo\Faker\PicsumProvider;
 
 /**
- * Trait TestFakerTrait
- * @package Bytes\Common\Faker
+ * Trait TestFakerTrait.
  *
  * @property Base[]|array $providers
  */
@@ -55,12 +33,14 @@ trait TestFakerTrait
                 $provider = new $class($faker);
                 $faker->addProvider($provider);
             }
+
             $this->faker = $faker;
         }
     }
 
     /**
      * @return array|Base[]
+     *
      * @var Base[]|array
      */
     protected function getProviders()
