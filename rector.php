@@ -51,7 +51,7 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->sets([
         DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
-        PHPUnitSetList::PHPUNIT_100,
+        PHPUnitSetList::PHPUNIT_110,
         SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
         SymfonySetList::SYMFONY_60,
         SymfonySetList::SYMFONY_61,
