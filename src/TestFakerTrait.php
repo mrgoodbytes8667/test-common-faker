@@ -3,6 +3,8 @@
 namespace Bytes\Common\Faker;
 
 use Faker\Provider\Base;
+use PHPUnit\Framework\Attributes\After;
+use PHPUnit\Framework\Attributes\Before;
 
 /**
  * @property Base[]|array $providers
@@ -14,9 +16,7 @@ trait TestFakerTrait
      */
     protected $faker;
 
-    /**
-     * @before
-     */
+    #[Before]
     protected function setupFaker(): void
     {
         if (is_null($this->faker)) {
@@ -40,9 +40,7 @@ trait TestFakerTrait
         return $this->providers ?? [];
     }
 
-    /**
-     * @after
-     */
+    #[After]
     protected function tearDownFaker(): void
     {
         $this->faker = null;

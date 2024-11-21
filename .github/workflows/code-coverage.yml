@@ -14,4 +14,4 @@ jobs:
     uses: mrgoodbytes8667/workflows/.github/workflows/code-coverage.yml@php8.1-8.3
     secrets: inherit
     with:
-      phpUnitVersion: 9.6
+      phpUnitVersion: 10.5
