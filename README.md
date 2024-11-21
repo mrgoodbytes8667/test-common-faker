@@ -40,6 +40,11 @@ Note: @var is helpful for IDE autocompletion
 If you are using `$faker` in every test, you can use `TestFakerTrait` to setup/teardown `$this->faker` before/after each test.
 Declare `$this->providers` as an array of additional providers beyond `MiscProvider` to auto-add them when using this trait.
 
+## Upgrade Notes
+### From <0.7\* to 0.7.\*
+- PHPUnit 9.\* support dropped due to annotations to attributes swap. There may be issues with 0.7.\*+ if used in conjunction with PHPUnit 9.\*
+  Note: [Rector can automatically change tests to use the newer annotations](https://getrector.com/blog/how-to-upgrade-to-phpunit-10-in-diffs#:~:text=the%20%40annotations%20are%20flipped%20to%20%23%5Battributes%5D)
+
 ## License
 [![License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)]("http://creativecommons.org/licenses/by-nc/4.0/)  
 Test Common Faker by [MrGoodBytes](https://mrgoodbytes.dev) is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).  
